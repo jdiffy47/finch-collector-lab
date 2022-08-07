@@ -21,11 +21,15 @@
   <div class="finch-details">
     <h1>{{ finch.name }}</h1>
     {% if finch.age > 0 %}
-      <h2>A {{ finch.age }} year old {{ finch.color }}</h2>
+      <h2>A {{ finch.age }} year old {{ finch.color }} Finch</h2>
     {% else %}
       <h2>A {{ finch.color }} kitten.</h2>
     {% endif %}
     <p>{{ finch.sound }}</p>
+    <div class="cat-actions">
+      <a href="{% url 'finches_update' finch.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'finches_delete' finch.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 
