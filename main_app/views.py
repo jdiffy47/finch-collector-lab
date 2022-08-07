@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Finch
+from django.views.generic import ListView, DetailView
+from .models import Finch, Toy
 from .forms import FeedingForm
-
-
 
 
 
@@ -44,4 +43,22 @@ class FinchUpdate(UpdateView):
 class FinchDelete(DeleteView):
   model = Finch
   success_url = '/finches/'
+
+class ToyCreate(CreateView):
+  model= Toy
+  fields = '__all__'
+
+class ToyList(ListView):
+  model = Toy
+
+class ToyDetail(DetailView):
+  model = Toy
+
+class ToyUpdate(UpdateView):
+  model = Toy
+  fields = ['name', 'color']
+
+class ToyDelete(DeleteView):
+  model = Toy
+  success_url = '/toys/'
 
