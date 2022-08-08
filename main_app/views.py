@@ -61,7 +61,7 @@ def signup(request):
 
 class FinchCreate(LoginRequiredMixin, CreateView):
   model = Finch
-  fields = ['name', 'breed', 'description', 'age']
+  fields = ['name', 'color', 'sound', 'age']
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
